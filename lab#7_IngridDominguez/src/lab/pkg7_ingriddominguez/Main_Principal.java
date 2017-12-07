@@ -51,7 +51,7 @@ public class Main_Principal extends javax.swing.JFrame {
         btn_CrearCliente = new javax.swing.JButton();
         tf_edadCliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btn_realizarCompra = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -186,18 +186,18 @@ public class Main_Principal extends javax.swing.JFrame {
         jLabel6.setText("Edad Cliente");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 99, 99, 25));
 
-        jButton6.setText("Realizar Compra");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_realizarCompra.setText("Realizar Compra");
+        btn_realizarCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                btn_realizarCompraMouseClicked(evt);
             }
         });
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btn_realizarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btn_realizarCompraActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 117, 33));
+        jPanel3.add(btn_realizarCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 117, 33));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -328,6 +328,10 @@ public class Main_Principal extends javax.swing.JFrame {
             tf_nombreCajero.setText("");
 
             //////////////
+            Ventana ventanaTemp = nuevo.getFrame();
+            
+            ventanaTemp.setVisible(true);
+           // ventanaTemp.pack();
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -365,6 +369,9 @@ public class Main_Principal extends javax.swing.JFrame {
             cliente nuevo = new cliente(tf_nombreCliente.getText(), Integer.parseInt(tf_edadCliente.getText()));
             todo.add(nuevo);
 
+            
+            productos  = new ArrayList();
+            
             actualCliente = nuevo;
             tf_nombreCliente.setEnabled(false);
             tf_edadCliente.setEnabled(false);
@@ -392,25 +399,40 @@ public class Main_Principal extends javax.swing.JFrame {
     private void btn_productosAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_productosAgregarMouseClicked
         // TODO add your handling code here:
         try {
-             producto nuevo = (producto) jcb_productos.getSelectedItem();
+            producto nuevo = (producto) jcb_productos.getSelectedItem();
              productos.add(nuevo);
+             JOptionPane.showMessageDialog(this, "Producto Agregado");
         } catch (Exception e) {
         }
       
     }//GEN-LAST:event_btn_productosAgregarMouseClicked
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btn_realizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_realizarCompraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btn_realizarCompraActionPerformed
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void btn_realizarCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_realizarCompraMouseClicked
         // TODO add your handling code here:
         try {
-            actualCliente.setOrden(new orden( ( (cliente) jcb_cajeros.getSelectedItem()  ),   actualCliente   ));
+            orden laorden = new orden( ( (cajero) jcb_cajeros.getSelectedItem()  ),   actualCliente   );
+            actualCliente.setOrden(laorden);
+            
+            laorden.setProductos(productos);
+        
+            cajero cajeroActual = (cajero) jcb_cajeros.getSelectedItem() ;
+            cajeroActual.getOrdenes().add(laorden);
+            
+            cajeroActual.setOrdenX(laorden);
+            
+            
+            
+            Thread proceso = new Thread(cajeroActual);
+            proceso.start();
+            
         } catch (Exception e) {
         }
         
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_btn_realizarCompraMouseClicked
 
     /**
      * @param args the command line arguments
@@ -452,9 +474,9 @@ public class Main_Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_guardarCajero;
     private javax.swing.JButton btn_productos;
     private javax.swing.JButton btn_productosAgregar;
+    private javax.swing.JButton btn_realizarCompra;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

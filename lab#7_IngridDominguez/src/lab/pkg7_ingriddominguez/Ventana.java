@@ -32,7 +32,7 @@ public class Ventana extends javax.swing.JFrame {
         tf_productoEnProceso = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jT_tabla = new javax.swing.JTable();
+        jt_tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,7 +44,7 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel9.setText("Procesando");
 
-        jT_tabla.setModel(new javax.swing.table.DefaultTableModel(
+        jt_tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -67,7 +67,7 @@ public class Ventana extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jT_tabla);
+        jScrollPane1.setViewportView(jt_tabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,9 +148,9 @@ public class Ventana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jT_tabla;
     public javax.swing.JLabel jl_nombreCajero;
     public javax.swing.JLabel jl_nombreCliente;
+    public javax.swing.JTable jt_tabla;
     public javax.swing.JTextField tf_productoEnProceso;
     // End of variables declaration//GEN-END:variables
 }
