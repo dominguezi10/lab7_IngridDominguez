@@ -21,7 +21,6 @@ public class Main_Principal extends javax.swing.JFrame {
      */
     public Main_Principal() {
         initComponents();
-        primerModelo = (DefaultTableModel) jT_tabla.getModel();
     }
 
     /**
@@ -33,13 +32,6 @@ public class Main_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jd_productosProcesando = new javax.swing.JDialog();
-        jl_nombreCliente = new javax.swing.JLabel();
-        jl_nombreCajero = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        tf_productoEnProceso = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jT_tabla = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -70,77 +62,6 @@ public class Main_Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-
-        jl_nombreCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jl_nombreCajero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel9.setText("Procesando");
-
-        tf_productoEnProceso.setEditable(false);
-
-        jT_tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Producto", "Cliente", "Tiempo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jT_tabla);
-
-        javax.swing.GroupLayout jd_productosProcesandoLayout = new javax.swing.GroupLayout(jd_productosProcesando.getContentPane());
-        jd_productosProcesando.getContentPane().setLayout(jd_productosProcesandoLayout);
-        jd_productosProcesandoLayout.setHorizontalGroup(
-            jd_productosProcesandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_productosProcesandoLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jd_productosProcesandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_productosProcesandoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(jd_productosProcesandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jd_productosProcesandoLayout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tf_productoEnProceso))
-                            .addGroup(jd_productosProcesandoLayout.createSequentialGroup()
-                                .addComponent(jl_nombreCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jl_nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(58, 58, 58))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
-        );
-        jd_productosProcesandoLayout.setVerticalGroup(
-            jd_productosProcesandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_productosProcesandoLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jd_productosProcesandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jl_nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jl_nombreCajero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_productosProcesandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_productoEnProceso, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -266,6 +187,16 @@ public class Main_Principal extends javax.swing.JFrame {
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 99, 99, 25));
 
         jButton6.setText("Realizar Compra");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 117, 33));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -397,15 +328,7 @@ public class Main_Principal extends javax.swing.JFrame {
             tf_nombreCajero.setText("");
 
             //////////////
-            jT_tabla.setModel(primerModelo);
-            jl_nombreCajero.setText("");
-            jl_nombreCliente.setText("");
-            tf_productoEnProceso.setText("");
-
-            this.jd_productosProcesando.setModal(true);
-            jd_productosProcesando.pack();
-            jd_productosProcesando.setVisible(true);
-            jd_productosProcesando.setLocationRelativeTo(jd_productosProcesando);
+            
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error! Datos no guardados");
@@ -473,9 +396,21 @@ public class Main_Principal extends javax.swing.JFrame {
              productos.add(nuevo);
         } catch (Exception e) {
         }
-       
-       
+      
     }//GEN-LAST:event_btn_productosAgregarMouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        try {
+            actualCliente.setOrden(new orden( ( (cliente) jcb_cajeros.getSelectedItem()  ),   actualCliente   ));
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -528,27 +463,20 @@ public class Main_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jT_tabla;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JComboBox<String> jcb_cajeros;
     private javax.swing.JComboBox<String> jcb_productos;
-    private javax.swing.JDialog jd_productosProcesando;
-    private javax.swing.JLabel jl_nombreCajero;
-    private javax.swing.JLabel jl_nombreCliente;
     private javax.swing.JTextField tf_edadCliente;
     private javax.swing.JTextField tf_nombreCajero;
     private javax.swing.JTextField tf_nombreCliente;
     private javax.swing.JTextField tf_nombreProductos;
     private javax.swing.JTextField tf_precioProducto;
-    private javax.swing.JTextField tf_productoEnProceso;
     private javax.swing.JTextField tf_tiempoProducto;
     // End of variables declaration//GEN-END:variables
 

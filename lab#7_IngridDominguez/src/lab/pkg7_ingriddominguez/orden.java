@@ -18,6 +18,13 @@ public class orden implements Serializable {
     private cliente Cliente;
     private ArrayList<producto> productos = new ArrayList();
 
+    public orden(cajero Cajero, cliente Cliente) {
+        this.Cajero = Cajero;
+        this.Cliente = Cliente;
+    }
+
+    
+    
     public cajero getCajero() {
         return Cajero;
     }

@@ -7,13 +7,14 @@ package lab.pkg7_ingriddominguez;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 /**
  *
  * @author 1234
  */
 public class cajero implements Serializable {
-
+    private Ventana frame;
     private String nombre;
     private int id;
     private ArrayList<orden> ordenes = new ArrayList();
@@ -24,6 +25,17 @@ public class cajero implements Serializable {
         this.id = id;
     }
 
+    public Ventana getFrame() {
+        return frame;
+    }
+
+    public void setFrame(Ventana frame) {
+        this.frame = frame;
+    }
+
+
+    
+    
     @Override
     public String toString() {
         return nombre;
