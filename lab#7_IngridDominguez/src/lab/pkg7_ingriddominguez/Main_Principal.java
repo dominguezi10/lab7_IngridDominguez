@@ -488,7 +488,7 @@ public class Main_Principal extends javax.swing.JFrame {
                     
                    // JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente!");
                     System.out.println("traje " + aA.getElementos().size());
-                }// fin del if
+                }// fin del ifjj
 
             } catch (Exception e) {
             }
