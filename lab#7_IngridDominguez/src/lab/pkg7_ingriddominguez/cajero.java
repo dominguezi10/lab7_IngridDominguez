@@ -72,6 +72,10 @@ public class cajero implements Serializable, Runnable {
         laOrden = Orden;
     }
 
+    public void setSeguir(){
+        this.seguir = true;
+    }
+    
     @Override
     public void run() {
         frame.jl_nombreCajero.setText(laOrden.getCajero().getNombre());

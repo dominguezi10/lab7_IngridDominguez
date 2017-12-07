@@ -423,9 +423,7 @@ public class Main_Principal extends javax.swing.JFrame {
             cajeroActual.getOrdenes().add(laorden);
             
             cajeroActual.setOrdenX(laorden);
-            
-            
-            
+            cajeroActual.setSeguir();
             Thread proceso = new Thread(cajeroActual);
             proceso.start();
             
