@@ -17,10 +17,9 @@ public class cliente implements Serializable{
     private int edad;
     private orden Orden;
 
-    public cliente(String nombre, int edad, orden Orden) {
+    public cliente(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
-        this.Orden = Orden;
     }
 
     public String getNombre() {
@@ -49,7 +48,7 @@ public class cliente implements Serializable{
 
     @Override
     public String toString() {
-        return "cliente{" + "nombre=" + nombre + '}';
+        return nombre;
     }
     
     

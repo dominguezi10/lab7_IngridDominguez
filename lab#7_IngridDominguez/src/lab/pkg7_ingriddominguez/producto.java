@@ -49,7 +49,7 @@ public class producto implements Serializable {
 
     @Override
     public String toString() {
-        return "producto{" + "nombre=" + nombre + '}';
+        return nombre;
     }
     
     

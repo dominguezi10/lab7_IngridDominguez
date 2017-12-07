@@ -26,7 +26,7 @@ public class cajero implements Serializable {
 
     @Override
     public String toString() {
-        return "cajero{" + "nombre=" + nombre + '}';
+        return nombre;
     }
 
     

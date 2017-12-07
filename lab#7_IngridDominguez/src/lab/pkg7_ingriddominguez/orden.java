@@ -41,6 +41,13 @@ public class orden implements Serializable {
     public void setProductos(ArrayList<producto> productos) {
         this.productos = productos;
     }
+
+    @Override
+    public String toString() {
+        return "orden{" + "Cajero=" + Cajero + ", Cliente=" + Cliente + ", productos=" + productos + '}';
+    }
+    
+    
     
     
 }
