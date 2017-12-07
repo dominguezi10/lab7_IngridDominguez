@@ -7,6 +7,7 @@ package lab.pkg7_ingriddominguez;
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -268,6 +269,11 @@ public class Main_Principal extends javax.swing.JFrame {
         jButton4.setText("Abrir");
 
         jButton5.setText("Guardar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -318,7 +324,7 @@ public class Main_Principal extends javax.swing.JFrame {
             cajero nuevo = new cajero(tf_nombreCajero.getText(), cont);
             cont++;
 
-            todo.add(nuevo);
+            //todo.add(nuevo);
             DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_cajeros.getModel();
             model.addElement(nuevo);
             jcb_cajeros.setModel(model);
@@ -350,7 +356,7 @@ public class Main_Principal extends javax.swing.JFrame {
             DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_productos.getModel();
             model.addElement(nuevo);
             jcb_productos.setModel(model);
-
+            todosLosProductos.add(nuevo);
             todo.add(nuevo);
             JOptionPane.showMessageDialog(this, "Producto Creado Exitosamente!");
             System.out.println(nuevo.toString());
@@ -367,9 +373,8 @@ public class Main_Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             cliente nuevo = new cliente(tf_nombreCliente.getText(), Integer.parseInt(tf_edadCliente.getText()));
-            todo.add(nuevo);
+            //todo.add(nuevo);
 
-            
             productos  = new ArrayList();
             
             actualCliente = nuevo;
@@ -401,6 +406,8 @@ public class Main_Principal extends javax.swing.JFrame {
         try {
             producto nuevo = (producto) jcb_productos.getSelectedItem();
              productos.add(nuevo);
+             
+           
              JOptionPane.showMessageDialog(this, "Producto Agregado");
         } catch (Exception e) {
         }
@@ -427,10 +434,36 @@ public class Main_Principal extends javax.swing.JFrame {
             Thread proceso = new Thread(cajeroActual);
             proceso.start();
             
+            
+            if(!todo.contains(cajeroActual)){
+                todo.add(cajeroActual);
+            }
         } catch (Exception e) {
         }
         
     }//GEN-LAST:event_btn_realizarCompraMouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        
+        try {
+            JFileChooser jfc = new JFileChooser();
+            int seleccion = jfc.showSaveDialog(this);
+            if(seleccion == JFileChooser.APPROVE_OPTION){
+                administrarArchivos aA = new administrarArchivos(jfc.getSelectedFile().getPath()+ ".idm");
+                aA.cargarArchivo();
+                aA.setElementos(todosLosProductos);
+                aA.escribirArchivo();
+                
+                JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente!");
+                System.out.println("guarde " + aA.getElementos().size());
+            }// fin del if
+            
+            
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -510,4 +543,7 @@ public class Main_Principal extends javax.swing.JFrame {
     DefaultTableModel primerModelo;
     cliente actualCliente;
     ArrayList<producto> productos = new ArrayList();
+    
+    
+    ArrayList<producto> todosLosProductos = new ArrayList();
 }
